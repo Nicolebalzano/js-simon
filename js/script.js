@@ -9,9 +9,9 @@
 // - Se l’utente ha inserito qualcosa di non valido, segnaliamolo visivamente nel form.
 /**
  * MILESTONE 0
- * 1) Creare l'interfaccia 
+ * 1) Creare l'interfaccia --> done
  * MILESTONE 1
- * 2) Generare i 5 numeri random
+ * 2) Generare i 5 numeri random --> done
  * 3) Stampare i 5 numeri in pagina
  * 4) Far scomparire i numeri dopo 30 secondi e mostrare gli input
  * MILESTONE 2
@@ -34,6 +34,8 @@ function randomNumber (count, max, min) {
 const numsRandom = randomNumber(count, max, min);
 console.log(numsRandom);
 
+    const numElem = document.querySelector("h2");
+  numElem.innerHTML += numsRandom;
     
        
      
