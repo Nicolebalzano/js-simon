@@ -12,8 +12,8 @@
  * 1) Creare l'interfaccia --> done
  * MILESTONE 1
  * 2) Generare i 5 numeri random --> done
- * 3) Stampare i 5 numeri in pagina
- * 4) Far scomparire i numeri dopo 30 secondi e mostrare gli input
+ * 3) Stampare i 5 numeri in pagina --> done
+ * 4) Far scomparire i numeri dopo 30 secondi e mostrare gli input --> done
  * MILESTONE 2
  * 5) Al click sul bottone leggere i numeri inseriti dall'utente
  * 6) Controllare quanti dei numeri sono stati indovinati
@@ -36,6 +36,27 @@ console.log(numsRandom);
 
     const numElem = document.querySelector("h2");
   numElem.innerHTML += numsRandom;
+  const title = document.querySelector("h1");
+
+  const userTurn = document.getElementById("user-turn");
+setTimeout(function(){
+numElem.style.display = "none";
+title.style.display = "none";
+userTurn.classList = "block";
+
+}, 3000);
+
+const formElem = document.getElementById("form");
+const inputValue = document.querySelectorAll(".form .form-control");
+const buttonElem = document.querySelector(".btn");
+
+
+
+
+
+
+
+
     
-       
+
      
