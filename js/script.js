@@ -15,7 +15,7 @@
  * 3) Stampare i 5 numeri in pagina --> done
  * 4) Far scomparire i numeri dopo 30 secondi e mostrare gli input --> done
  * MILESTONE 2
- * 5) Al click sul bottone leggere i numeri inseriti dall'utente
+ * 5) Al click sul bottone leggere i numeri inseriti dall'utente --> done
  * 6) Controllare quanti dei numeri sono stati indovinati
  * 7) Stampare il risultato del punteggio
  */
@@ -45,10 +45,22 @@ title.style.display = "none";
 userTurn.classList = "block";
 
 }, 3000);
-
 const formElem = document.getElementById("form");
-const inputValue = document.querySelectorAll(".form .form-control");
+
+const inputValue = document.querySelectorAll("input");
 const buttonElem = document.querySelector(".btn");
+buttonElem.addEventListener("click", function(){
+       let values = [];
+       inputValue.forEach(inputValue => {
+              values.push(inputValue.value);
+       });
+       console.log(values);
+   formElem.reset();
+  for(let i = 0; i < values.length; i++) {
+       let curValue = values[i];
+       console.log(curValue);
+  }
+})
 
 
 
