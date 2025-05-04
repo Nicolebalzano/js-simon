@@ -24,7 +24,9 @@ let count = 5;
 let min = 1;
 let max = 100;
 let numbers = [];
-function randomNumber (count, max, min) {
+const startCountdownBtn = document.querySelector(".start-count-down");
+startCountdownBtn.addEventListener("click", function() {
+       function randomNumber (count, max, min) {
        for (let i = 0; i < count; i++){
               let random = (Math.floor(Math.random() * (max - min) + min));
               numbers.push(random);
@@ -36,31 +38,38 @@ console.log(numsRandom);
 
     const numElem = document.querySelector("h2");
   numElem.innerHTML += numsRandom;
-  const title = document.querySelector("h1");
-
+ const firstSection = document.getElementById("first-section");
   const userTurn = document.getElementById("user-turn");
-setTimeout(function(){
-numElem.style.display = "none";
-title.style.display = "none";
+const spanElem = document.querySelector(".count-down");
+
+let timer = 3;
+//   timer si attiva da qui
+const timeOut = setTimeout(function(){
+firstSection.style.display = "none";
 userTurn.classList = "block";
-
 }, 3000);
-const formElem = document.getElementById("form");
+})
 
+
+// preleva elem
+const formElem = document.getElementById("form");
 const inputValue = document.querySelectorAll("input");
 const buttonElem = document.querySelector(".btn");
+
+// azione al click che salva i valori dell'utente in un array
 buttonElem.addEventListener("click", function(){
        let values = [];
        inputValue.forEach(inputValue => {
               values.push(inputValue.value);
+              console.log(values);
        });
-       console.log(values);
    formElem.reset();
-  for(let i = 0; i < values.length; i++) {
-       let curValue = values[i];
-       console.log(curValue);
-  }
+//    controllare che i numeri corrispondono
+
+
+
 })
+
 
 
 

@@ -14,14 +14,18 @@
     <main class="container text-center">
         <div class="row justify-content-center">
             <!-- Questa parte appare per prima -->
-        <h1>Memorizza più numeri possibili, hai 30 secondi:</h1>
+             <div id="first-section">
+               
+        <h1>Memorizza più numeri possibili, hai <span class="count-down">30</span> secondi:</h1>
+         <button class="start-count-down btn btn-primary m-3 p-2">Start count down</button>
         <h2></h2>
+    </div>
             <!-- dopo i 30 secondi appare il form con i numeri da compilare -->
             <div id="user-turn" class="d-none">
                 <h4>Inserisci tutti i numeri che ricordi l'ordine non è importante</h4>
         <form action="" class="d-flex" id="form">
-            <input type="number" class="form-control mx-2" id="input-1" required>
-            <input type="number"  class="form-control mx-2"  id="input-2" required>
+            <input type="number" class="form-control mx-2" id="input-1">
+            <input type="number"  class="form-control mx-2"  id="input-2">
             <input type="number"  class="form-control mx-2"  id="input-3">
             <input type="number"  class="form-control mx-2"  id="input-4">
             <input type="number"  class="form-control mx-2"  id="input-5">
@@ -29,6 +33,7 @@
         <button class="btn btn-primary p-2 mt-3">Conferma</button>
 </div>
 <!-- verrà poi messo in display il risultato della partita -->
+ <p></p>
     </main>
     <script src="./js/script.js"></script>
 </body>
