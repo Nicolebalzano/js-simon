@@ -24,11 +24,14 @@ let count = 5;
 let min = 1;
 let max = 100;
 let numbers = [];
-const startCountdownBtn = document.querySelector(".start-count-down");
-startCountdownBtn.addEventListener("click", function() {
-       function randomNumber (count, max, min) {
+let correctNumbers = [];
+
+let userNumber = [];
+// funzione che genera numeri random
+function randomNumber (count, max, min) {
+    
        for (let i = 0; i < count; i++){
-              let random = (Math.floor(Math.random() * (max - min) + min));
+              let random = (Math.floor(Math.random() * (max - min + 1) + min));
               numbers.push(random);
        }
        return numbers;
@@ -36,39 +39,46 @@ startCountdownBtn.addEventListener("click", function() {
 const numsRandom = randomNumber(count, max, min);
 console.log(numsRandom);
 
+// prelevo elementi
     const numElem = document.querySelector("h2");
-  numElem.innerHTML += numsRandom;
+  numElem.innerHTML += numsRandom.join( " " );
  const firstSection = document.getElementById("first-section");
   const userTurn = document.getElementById("user-turn");
 const spanElem = document.querySelector(".count-down");
+const resultElem = document.querySelector("h3");
+const numberInput = document.querySelectorAll("#form input");
 
-let timer = 3;
+
+
 //   timer si attiva da qui
 const timeOut = setTimeout(function(){
 firstSection.style.display = "none";
 userTurn.classList = "block";
 }, 3000);
-})
-
 
 // preleva elem
 const formElem = document.getElementById("form");
 const inputValue = document.querySelectorAll("input");
 const buttonElem = document.querySelector(".btn");
 
-// azione al click che salva i valori dell'utente in un array
-buttonElem.addEventListener("click", function(){
-       let values = [];
-       inputValue.forEach(inputValue => {
-              values.push(inputValue.value);
-              console.log(values);
-       });
-   formElem.reset();
-//    controllare che i numeri corrispondono
-
-
-
-})
+formElem.addEventListener("submit", handleFormSubmit);
+function handleFormSubmit(event){
+       event.preventDefault();
+       for(let i = 0; i < numberInput.length; i++) {
+              const value = parseInt(numberInput[i].value);
+              if(!userNumber.includes(value)){
+                     userNumber.push(value);
+              }
+       }
+       for (let i = 0; i < userNumber.length; i++){
+              const curNumber = userNumber[i];
+              if (numbers.includes(curNumber)){
+                     correctNumbers.push(curNumber);
+              }
+       }
+       resultElem.innerHTML = `Hai indovinato ${correctNumbers.length} numeri`;
+       resultElem.classList.remove("d-none");
+}
 
 
 
